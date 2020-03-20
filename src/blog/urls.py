@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import index, blog, contact
+from posts.views import index, blog, contact
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
