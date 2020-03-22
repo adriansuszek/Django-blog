@@ -42,7 +42,7 @@ ROOT_URLCONF = 'blog.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.django.DjangoTemplates', #typ jezyka, ktory jest uzywane w templatkach -> umozliwia na przyklad uzycie {{ }}, czy {% %}
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -57,7 +57,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blog.wsgi.application'
-
+#
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -96,17 +96,31 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = True #Internationalizacja - mozna robic w 2 jezykach
 
-USE_L10N = True
+USE_L10N = True #obsluguje date/czas itd w zaleznosci od kraju
 
-USE_TZ = True
+USE_TZ = True #use timezone - okreslenie czasu i strefy czasowej np. dodania posta (jakiejkolwiek czynnosci)
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+#     os.path.join(BASE_DIR)
+# ]
+#
+# # VENV_PATH = os.path.dirname(BASE_DIR)
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [ #stąd od będzie brał pliki statyczne (z folderu static_in_env ?)
+    os.path.join(BASE_DIR, 'static')
 ]
+VENV_PATH = os.path.dirname(BASE_DIR)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
+MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')

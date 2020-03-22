@@ -2,7 +2,11 @@ from django.db import models
 from django.contrib.auth import get_user_model
 #get user model?
 
+from datetime import datetime
+
+
 User = get_user_model()
+
 
 # Create your models here.
 class Author(models.Model):
@@ -24,12 +28,13 @@ class Post(models.Model):
     #dokumentacja - zapytać przemasa
     #dokumentacja - zapytać przemasa
     #dokumentacja - zapytać przemasa
-    #dokumentacja - zapytać przemasa
+    #dokumentacja - zapyt   ać przemasa
     #dokumentacja - zapytać przemasa
     #dokumentacja - zapytać przemasa
     #dokumentacja - zapytać przemasa
     timestamp = models.DateTimeField(auto_now_add = True)
     comment_count = models.IntegerField(default = 0)
+    views_number = models.IntegerField(default = 0)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     thumbnail = models.ImageField()
     categories = models.ForeignKey(Category, on_delete=models.CASCADE)
