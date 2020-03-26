@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Category, Post
 
 def index(request):
     latest = Post.objects.order_by('-timestamp')[0:3]
@@ -11,10 +11,22 @@ def index(request):
 
 def blog(request):
     post_list = Post.objects.order_by('-timestamp')
+    last_post_list = post_list[:3]
+    categories = Category.objects.all()
     context = {
-        'post_list': post_list
+        'post_list': post_list,
+        'last_post': last_post_list,
+        'categories': categories
     }
     return render(request, 'blog.html', context)
+
+
+def post(request, slug):
+    post_det = Post.objects.get(slug=slug)
+    context = {
+        'post': post_det,
+    }
+    return render(request, 'post.html', context)
 
 
 def contact(request):

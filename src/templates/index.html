@@ -58,7 +58,7 @@
                 <div class="category"><a href="#">{{ obj.category }}</a></div>
               </div><a href="#">
                 <h3 class="h4">{{ obj.title }}</h3></a>
-              <p class="text-muted">{{ obj.overview }}</p>
+              <p class="text-muted">{{ obj.overview|safe }}</p>
             </div>
           </div>
           {% endfor %}
