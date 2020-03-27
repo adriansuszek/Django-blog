@@ -27,24 +27,6 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length = 150)
     overview = RichTextField()
-    #dokumentacja - zapytać przemasa
-    #dokumentacja - zapytać przemasa
-    #dokumentacja - zapytać przemasa
-    #dokumentacja - zapyt   ać przemasa
-    #dokumentacja - zapytać przemasa
-    #dokumentacja - zapytać przemasa
-    #dokumentacja - zapytać przemasa
-
-# >>> from datetime import *
-# >>> d = datetime(2015, 10, 9, 23, 55, 59, 342380)
-# >>> d
-# datetime.datetime(2015, 10, 9, 23, 55, 59, 342380)
-#
-# >>> d.day
-# 9
-# https://www.geeksforgeeks.org/datetimefield-django-models/
-
-
     timestamp = models.DateTimeField(auto_now_add = True)
     comment_count = models.IntegerField(default = 0)
     slug = models.SlugField(unique=True)

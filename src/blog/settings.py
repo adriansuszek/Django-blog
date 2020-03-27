@@ -118,10 +118,21 @@ USE_TZ = True #use timezone - okreslenie czasu i strefy czasowej np. dodania pos
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
+print("STATIC_URL: ", STATIC_URL)
 MEDIA_URL = '/media/'
+print("BASE DIR: ", BASE_DIR)
 STATICFILES_DIRS = [ #stąd od będzie brał pliki statyczne (z folderu static_in_env ?)
     os.path.join(BASE_DIR, 'static')
 ]
+print("STATICFILES_DIRS ", STATICFILES_DIRS)
 VENV_PATH = os.path.dirname(BASE_DIR)
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
+print("VENV_PATH", VENV_PATH)
+STATIC_ROOT = os.path.join(VENV_PATH, 'static_root') #So this setting specifies a directory to which Django will copy all the static files from from all files within STATICFILES_DIRS
+print("STATIC_ROOT ", STATIC_ROOT)
 MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
+print("MEDIA_ROOT ", MEDIA_ROOT)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
