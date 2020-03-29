@@ -16,21 +16,38 @@
               <!-- post -->
               {% for post in post_list %}
               <div class="post col-xl-6">
-                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src=" {{post.thumbnail.url}} ""..." class="img-fluid"></a></div>
+
+
+
+
+
+
+
+                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src=" {{post.thumbnail.url}}"
+                  style="max-width: 350;    max-height: 233px;   display: block;
+
+" class="img-fluid">
+</a></div>
+
+
+
+
+
+
                 <div class="post-details">
                   <div class="post-meta d-flex justify-content-between">
                     <div class="date meta-last">{{ post.timestamp.date }}</div>
-                    <div class="category"><a href="#">{{ post.category }}</a></div>
+                    <div class="category"><a href="#">{{ post.categories }}</a></div>
                   </div><a href="{{ post.get_absolute_url }}">
                     <h3 class="h4">{{post.title}}</h3></a>
-                  <p class="text-muted"> {{post.overview | safe}} </p>
+                  <p class="text-muted"> {{post.overview | safe | truncatechars:50}} </p>
                   <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
                       <div class="avatar"><img src=" {{ post.author.profile_picture.url }}""..." class="img-fluid"></div>
                       <div class="title"><span>{{post.author.user.username}}</span></div></a>
                       <!--datesAgo is my custom filter -->
                     <div class="date"><i class="icon-clock"> {{ post.timestamp|timesince|first_before:","}} ago </i></div>
                     <!-- musze doczytac o django filers -->
-                    <div class="comments meta-last"><i class="icon-comment"></i>{{post.comment_count}}</div>
+                    <!-- <div class="comments meta-last"><i class="icon-comment"></i>{{post.comment_count}}</div> -->
                   </footer>
                 </div>
               </div>
@@ -38,7 +55,7 @@
 
 
               <!-- poniżej przykład formatki HTML oryginału -->
-              <div class="post col-xl-6">
+              <!-- <div class="post col-xl-6">
                 <div class="post-thumbnail"><a href="post.html"><img src=" {% static 'img/blog-post-1.jpeg' %} ""..." class="img-fluid"></a></div>
                 <div class="post-details">
                   <div class="post-meta d-flex justify-content-between">
@@ -54,7 +71,7 @@
                     <div class="comments meta-last"><i class="icon-comment"></i>12</div>
                   </footer>
                 </div>
-              </div>
+              </div> -->
 
  <!--
  PAGINATION TO IMPROVE TO IMPROVE
@@ -101,8 +118,8 @@
                     <div class="image"><img src=" {{ post.thumbnail.url }} ""..." class="img-fluid"></div>
                     <div class="title"><strong> {{ post.title }} </strong>
                       <div class="d-flex align-items-center">
-                        <div class="views"><i class="icon-eye"></i> {{post.views_number}}</div>
-                        <div class="comments"><i class="icon-comment"></i>{{post.comment_count}}</div>
+                        <!-- <div class="views"><i class="icon-eye"></i> {{post.views_number}}</div> -->
+                        <!-- <div class="comments"><i class="icon-comment"></i>{{post.comment_count}}</div> -->
                       </div>
                     </div>
                   </div>
