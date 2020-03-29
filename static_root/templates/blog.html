@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load first_before %}
+
+
+{% block content %}
+
+
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="posts-listing col-lg-8">
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+              {% for post in post_list %}
+              <div class="post col-xl-6">
+
+
+
+
+
+
+
+                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src=" {{post.thumbnail.url}}"
+                  style="max-width: 350;    max-height: 233px;   display: block;
+
+" class="img-fluid">
+</a></div>
+
+
+
+
+
+
+                <div class="post-details">
+                  <div class="post-meta d-flex justify-content-between">
+                    <div class="date meta-last">{{ post.timestamp.date }}</div>
+                    <div class="category"><a href="#">{{ post.categories }}</a></div>
+                  </div><a href="{{ post.get_absolute_url }}">
+                    <h3 class="h4">{{post.title}}</h3></a>
+                  <p class="text-muted"> {{post.overview | safe | truncatechars:50}} </p>
+                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                      <div class="avatar"><img src=" {{ post.author.profile_picture.url }}""..." class="img-fluid"></div>
+                      <div class="title"><span>{{post.author.user.username}}</span></div></a>
+                      <!--datesAgo is my custom filter -->
+                    <div class="date"><i class="icon-clock"> {{ post.timestamp|timesince|first_before:","}} ago </i></div>
+                    <!-- musze doczytac o django filers -->
+                    <!-- <div class="comments meta-last"><i class="icon-comment"></i>{{post.comment_count}}</div> -->
+                  </footer>
+                </div>
+              </div>
+              {% endfor %}
+
+
+              <!-- poniżej przykład formatki HTML oryginału -->
+              <!-- <div class="post col-xl-6">
+                <div class="post-thumbnail"><a href="post.html"><img src=" {% static 'img/blog-post-1.jpeg' %} ""..." class="img-fluid"></a></div>
+                <div class="post-details">
+                  <div class="post-meta d-flex justify-content-between">
+                    <div class="date meta-last">20 May | 2016</div>
+                    <div class="category"><a href="#">Business</a></div>
+                  </div><a href="post.html">
+                    <h3 class="h4">Alberto Savoia Can Teach You About Interior</h3></a>
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                  <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                      <div class="avatar"><img src=" {% static 'img/avatar-3.jpg' %} ""..." class="img-fluid"></div>
+                      <div class="title"><span>John Doe</span></div></a>
+                    <div class="date"><i class="icon-clock"></i> 2 mounth ago</div>
+                    <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                  </footer>
+                </div>
+              </div> -->
+
+ <!--
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+ PAGINATION TO IMPROVE TO IMPROVE
+-->
+
+
+            <!-- Pagination -->
+            <!-- <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-template d-flex justify-content-center">
+                <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+              </ul>
+            </nav>
+          </div> -->
+        </main>
+        <aside class="col-lg-4">
+
+          <!-- Widget [Latest Posts Widget]        -->
+          <div class="widget latest-posts">
+            <header>
+              <h3 class="h6">Latest Posts</h3>
+            </header>
+            <div class="blog-posts">
+                {% for post in last_post %}
+                <a href="{{ post.get_absolute_url }}">
+                  <div class="item d-flex align-items-center">
+                    <div class="image"><img src=" {{ post.thumbnail.url }} ""..." class="img-fluid"></div>
+                    <div class="title"><strong> {{ post.title }} </strong>
+                      <div class="d-flex align-items-center">
+                        <!-- <div class="views"><i class="icon-eye"></i> {{post.views_number}}</div> -->
+                        <!-- <div class="comments"><i class="icon-comment"></i>{{post.comment_count}}</div> -->
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              {% endfor %}
+              </div>
+              </div>
+
+          <!-- Widget [Categories Widget]-->
+          <!-- <div class="widget categories">
+            <header>
+              <h3 class="h6">Categories</h3>
+            </header>
+
+            {% for post in categories %}
+            <div class="item d-flex justify-content-between"><a href="#"> {{ post.title }}</a><span>12</span></div>
+            {% endfor %}
+          </div> -->
+
+        </aside>
+      </div>
+    </div>
+
+{% endblock content %}
