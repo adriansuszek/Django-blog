@@ -13,7 +13,7 @@ SECRET_KEY = 'tkxrguur82v*32qzb=q!d&#rx=%7k%tb)al@+vav3u=^0&tu$s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangoblogadrian.herokuapp.com']
+ALLOWED_HOSTS = ['djangoblogadrian.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'posts',
     'ckeditor'
 ]
+
+# CKEDITOR_UPLOAD_PATH = 'uploads'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,19 +120,19 @@ USE_TZ = True #use timezone - okreslenie czasu i strefy czasowej np. dodania pos
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
-print("STATIC_URL: ", STATIC_URL)
+# print("STATIC_URL: ", STATIC_URL)
 MEDIA_URL = '/media/'
-print("BASE DIR: ", BASE_DIR)
+# print("BASE DIR: ", BASE_DIR)
 STATICFILES_DIRS = [ #stąd od będzie brał pliki statyczne (z folderu static_in_env ?)
     os.path.join(BASE_DIR, 'static')
 ]
-print("STATICFILES_DIRS ", STATICFILES_DIRS)
+# print("STATICFILES_DIRS ", STATICFILES_DIRS)
 # VENV_PATH = os.path.dirname(BASE_DIR)
 # print("VENV_PATH", VENV_PATH)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root') #So this setting specifies a directory to which Django will copy all the static files from all files within STATICFILES_DIRS
-print("STATIC_ROOT ", STATIC_ROOT)
+# print("STATIC_ROOT ", STATIC_ROOT)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
-print("MEDIA_ROOT ", MEDIA_ROOT)
+# print("MEDIA_ROOT ", MEDIA_ROOT)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

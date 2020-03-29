@@ -11,6 +11,7 @@ urlpatterns = [
     path('post/<slug:slug>/', post, name='post-detail'),
     path('post/', last_post),
     path('contact/', contact),
+    # path('ckeditor/', include('ckeditor_uploader.urls'))
 ]
 
 # urlpatterns += staticfiles_urlpatterns()

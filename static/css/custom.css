@@ -1,16 +1,5 @@
-
-#checkcustom {
-  background-color: blue;
-  color: red;
-}
-
-.checkcustomClass {
-  color: yellow;
-}
-
-
 .post-body {
-  text-align: justify; 
+  text-align: justify;
   text-justify: inter-word;
 }
 

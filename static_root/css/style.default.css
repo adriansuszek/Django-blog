@@ -56,7 +56,8 @@ ul {
 }
 
 section {
-  padding: 100px 0;
+  /* padding: 100px 0; */
+  padding: 85px 0;
   overflow-x: hidden;
 }
 
@@ -1053,8 +1054,7 @@ section.gallery .overlay i {
 */
 footer.main-footer {
   background: #0e0e0e;
-  /* padding: 30px 0px 20px 0px; */
-  padding: 100px 0px 20px 0px;
+  /* padding: 100px 0 0; */
   color: #fff;
 }
 
@@ -1115,7 +1115,7 @@ footer.main-footer .latest-posts .date {
 
 footer.main-footer .copyrights {
   background: #090909;
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 20px 0;
   font-size: 0.9em;
 }
