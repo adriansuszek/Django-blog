@@ -1,0 +1,78 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 500px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	<p class="text-center">Get started with your free account</p>
+	<!-- <p>
+		<a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>   Login via Gmail</a>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+	</p>
+	<p class="divider-text">
+        <span class="bg-light">OR</span>
+    </p> -->
+	<form action='' method='POST'>
+		{% csrf_token %}
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+{{form.username}}    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        {{form.email}}
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{form.password1}}
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+			{{form.password2}}
+    </div> <!-- form-group// -->
+
+		{{form.errors}}
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+    </div> <!-- form-group// -->
+    <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
+<!-- this script will provide placeholders  -->
+<script>
+	var form_fields = document.getElementsByTagName('input')
+	form_fields[2].placeholder='Username...';
+	form_fields[3].placeholder='Email...';
+	form_fields[4].placeholder='Password...';
+	form_fields[5].placeholder='Repeat password...';
+
+	for (var field in form_fields){
+		form_fields[field].className += 'form-control'
+	}
+
+</script>
+
+
+
+{% endblock content %}

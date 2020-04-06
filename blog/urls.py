@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from posts.views import index, blog, post, last_post, contact #PAMIETAJMY, ZE VIEWS IMPORTUJE Z apki - posts!!!
+from registration.views import registration_form, login_form, logout_form #user tu jest do wywalenia
 #mogloby by rowniez from post import views, i wtedy w urlpatterns:     path('blog/', views.blog, name='post-list'),
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -11,7 +12,9 @@ urlpatterns = [
     path('post/<slug:slug>/', post, name='post-detail'),
     path('post/', last_post),
     path('contact/', contact),
-    # path('ckeditor/', include('ckeditor_uploader.urls'))
+    path('register/', registration_form),
+    path('login/', login_form),
+    path('logout/', logout_form),
 ]
 
 # urlpatterns += staticfiles_urlpatterns()

@@ -9,7 +9,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
+        {% if request.user.is_authenticated %}
+          <h1> Hello {{ request.user }}, <br>Let's learn Django together! </h1>
+        {% else %}
         <h1>Let's learn Django together! </h1>
+        {% endif %}
       </div>
     </div>
     <!-- <a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a> -->
@@ -64,7 +68,7 @@
                 <div class="category"><a href="#">{{ obj.categories }}</a></div>
               </div><a href="{{ obj.get_absolute_url }}">
                 <h3 class="h4">{{ obj.title }}</h3></a>
-              <p class="text-muted">{{ obj.overview | safe | truncatechars:110 }}</p>
+              <p class="text-muted">{{ obj.overview | striptags | safe | truncatechars:50 }}</p>
             </div>
           </div>
           {% endfor %}
