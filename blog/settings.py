@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'ckeditor',
-    'registration'
+    'registration',
+    'storages',
 ]
 
 # CKEDITOR_UPLOAD_PATH = "uploads"
@@ -139,10 +140,21 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root') #So this setting specifies a
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 # print("MEDIA_ROOT ", MEDIA_ROOT)
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
+
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# )
+#
+AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
+AWS_ACCESS_KEY_ID = 'AKIAQQM26XSLELQN2OFB'
+AWS_SECRET_ACCESS_KEY = '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'
+
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Activate Django-Heroku.
