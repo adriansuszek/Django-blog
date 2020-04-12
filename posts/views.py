@@ -23,14 +23,18 @@ def blog(request):
 def last_post(request):
     last_post = Post.objects.order_by('-timestamp')[:1]
     context = {
-        'last_post': last_post
+        'last_post': last_post,
     }
     return render(request, 'post.html', context)
 
 def post(request, slug):
     post_det = Post.objects.get(slug=slug)
+    last_post_widget = Post.objects.order_by('-timestamp')[:3]
+
     context = {
         'post': post_det,
+        'last_post_widget': last_post_widget
+
     }
     return render(request, 'post.html', context)
 
