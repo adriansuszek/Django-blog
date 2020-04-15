@@ -1,0 +1,57 @@
+.post-body {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 10px 0 0;
+  /* font-size: 30px; */
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+.linkeid{
+  color: black;
+  background-color: black;
+}
+
+
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+.btn-google {
+    background-color: #DD4B39;
+    color: #fff;
+}

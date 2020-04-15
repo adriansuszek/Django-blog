@@ -146,10 +146,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 #     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 # )
 #
+# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
 AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
-AWS_ACCESS_KEY_ID = 'AKIAQQM26XSLELQN2OFB'
-AWS_SECRET_ACCESS_KEY = '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'
 
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS')
+
+print("ACCESS KEY ID: ", AWS_ACCESS_KEY_ID)
+
+
+# AWS_ACCESS_KEY_ID = 'AKIAQQM26XSLI2UIOAGR'
+# AWS_SECRET_ACCESS_KEY = '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'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
