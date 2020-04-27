@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Category, Post
+from django.shortcuts import render, reverse, redirect, get_object_or_404
+from .models import Category, Post, Comment
+from .forms import CommentForm
 
 def index(request):
     latest = Post.objects.order_by('-timestamp')[0:3]
@@ -28,13 +29,24 @@ def last_post(request):
     return render(request, 'post.html', context)
 
 def post(request, slug):
-    post_det = Post.objects.get(slug=slug)
+    # post_det = Post.objects.get(slug=slug)
+    post_det = get_object_or_404(Post,slug=slug)
     last_post_widget = Post.objects.order_by('-timestamp')[:3]
+
+    form = CommentForm(request.POST or None) #it stands for COMMENT feature
+    if request.method == "POST":
+        if form.is_valid():
+            form.instance.user = request.user #it will be fetched from Comment class from models.py
+            form.instance.post = post_det
+            form.save()
+            return redirect(reverse('post-detail', kwargs={
+                'slug': post_det.slug
+            }))
 
     context = {
         'post': post_det,
-        'last_post_widget': last_post_widget
-
+        'last_post_widget': last_post_widget,
+        'form': form,
     }
     return render(request, 'post.html', context)
 

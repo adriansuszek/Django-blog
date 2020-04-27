@@ -44,3 +44,22 @@ class Post(models.Model):
         return reverse('post-detail', kwargs={
             'slug': self.slug
         })
+
+    #it will give all comments related to particular post. We can treat get_comments as a property becose of @propety decorator
+    @property
+    def get_comments(self):
+        return self.comments.all().order_by('-timestamp')
+        #could be return self.comment_set.all().order_be('-timestamp')
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add = True)
+    comment_content = models.TextField()
+    post = models.ForeignKey(Post, related_name = 'comments', on_delete=models.CASCADE) #if post is deleted, comment is deleted as well
+    # post = models.ForeignKey(Post, on_delete=models.CASCADE) #if post is deleted, comment is deleted as well
+
+#The related_name attribute specifies the name of the reverse relation from the User model back to your model.
+#
+
+    def __str__(self):
+        return self.post.title + ' | user:  ' + self.user.username
