@@ -146,8 +146,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 #     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 # )
 #
-AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
-# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
+# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
+AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS')
