@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tkxrguur82v*32qzb=q!d&#rx=%7k%tb)al@+vav3u=^0&tu$s'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -146,8 +146,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 #     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 # )
 #
-# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
-AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
+AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
+# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS')
