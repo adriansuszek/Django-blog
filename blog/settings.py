@@ -161,8 +161,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root') #So this setting specifies a
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 
-AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
-# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
+# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
+AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS')

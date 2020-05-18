@@ -16,7 +16,7 @@ def blog(request):
     last_post_list = post_list[:3]
 
 #my custom pag
-    paginator = Paginator(post_list, 2)
+    paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page') # URL/?page=1,
     page_obj = paginator.get_page(page_number)
 
