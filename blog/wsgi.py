@@ -12,5 +12,6 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog.settings')
+#will check for first parameter as a sys var. if won't find it, will upload settings from blog.settings
 
 application = get_wsgi_application()

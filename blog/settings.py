@@ -30,9 +30,17 @@ INSTALLED_APPS = [
     'ckeditor',
     'registration',
     'storages',
+    'social_django',
 ]
 
 # CKEDITOR_UPLOAD_PATH = "uploads"
+
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -45,6 +53,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'blog.urls'
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    # 'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 TEMPLATES = [
     {
@@ -111,43 +126,43 @@ USE_L10N = True #obsluguje date/czas itd w zaleznosci od kraju
 
 USE_TZ = True #use timezone - okreslenie czasu i strefy czasowej np. dodania posta (jakiejkolwiek czynnosci)
 
+# ---------------------------------
+#below lines stands for social websites authentication
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-#     os.path.join(BASE_DIR)
-# ]
-#
-# # VENV_PATH = os.path.dirname(BASE_DIR)
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+# SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')        # App ID
+SOCIAL_AUTH_FACEBOOK_KEY = int(os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY'))
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')  # App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
+  'fields': 'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+# ---------------------------------
 
 STATIC_URL = '/static/'
-# print("STATIC_URL: ", STATIC_URL)
 MEDIA_URL = '/media/'
-# print("BASE DIR: ", BASE_DIR)
 STATICFILES_DIRS = [ #stąd od będzie brał pliki statyczne (z folderu static_in_env ?)
     os.path.join(BASE_DIR, 'static')
 ]
-# print("STATICFILES_DIRS ", STATICFILES_DIRS)
-# VENV_PATH = os.path.dirname(BASE_DIR)
-# print("VENV_PATH", VENV_PATH)
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root') #So this setting specifies a directory to which Django will copy all the static files from all files within STATICFILES_DIRS
-# print("STATIC_ROOT ", STATIC_ROOT)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
-# print("MEDIA_ROOT ", MEDIA_ROOT)
 
 
-# STATICFILES_FINDERS = (
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# )
-#
-# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
-AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
+AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket-dev'
+# AWS_STORAGE_BUCKET_NAME = 'djangoblog-bucket'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS')

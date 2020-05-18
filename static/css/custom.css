@@ -4,15 +4,23 @@
 }
 
 /* Style all font awesome icons */
-.fa {
+#social_index_buttons{
   padding: 10px 0 0;
   /* font-size: 30px; */
   width: 50px;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
-
 }
+/* .fa {
+  padding: 10px 0 0;
+  font-size: 30px; TO MOZNA ZAKOMENTOWAC
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+
+} */
 
 /* Add a hover effect if you want */
 .fa:hover {
@@ -46,12 +54,60 @@
     left: 0;
     z-index: 1;
 }
+/* .fb {
+  background-color: #3B5998;
+  color: white;
+} */
 
+/* it can be commented under */
 .btn-facebook {
-    background-color: #3b5998;
     color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0,0,0,0.2);
 }
+
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    margin-bottom: 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-social:hover {
+    color: #eee;
+}
+
+.btn-social :first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    padding: 7px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+
 .btn-google {
     background-color: #DD4B39;
     color: #fff;
 }
+
+/* HERE */
+
+/* input, .btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+} */

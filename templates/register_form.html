@@ -19,13 +19,19 @@
 	<p class="divider-text">
         <span class="bg-light">OR</span>
     </p> -->
+		<div class='col'
+		<button class="btn btn-primary mb-2">
+				<center> <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-lg btn-social btn-facebook">  <i class="fa fa-facebook fa-fw"></i>  Login with Facebook   </a>
+		</button>
+		</div>
+
 	<form action='' method='POST'>
 		{% csrf_token %}
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-{{form.username}}    </div> <!-- form-group// -->
+		 		{{form.username}}    </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
